@@ -9,25 +9,55 @@
 /* Begin PBXBuildFile section */
 		619248DC21A8239400832B8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619248DB21A8239400832B8B /* AppDelegate.swift */; };
 		619248DE21A8239400832B8B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 619248DD21A8239400832B8B /* GameScene.sks */; };
-		619248E021A8239400832B8B /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 619248DF21A8239400832B8B /* Actions.sks */; };
 		619248E221A8239400832B8B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619248E121A8239400832B8B /* GameScene.swift */; };
 		619248E421A8239400832B8B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619248E321A8239400832B8B /* GameViewController.swift */; };
 		619248E721A8239400832B8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 619248E521A8239400832B8B /* Main.storyboard */; };
 		619248E921A8239500832B8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619248E821A8239500832B8B /* Assets.xcassets */; };
 		619248EC21A8239500832B8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 619248EA21A8239500832B8B /* LaunchScreen.storyboard */; };
+		6192490321A825AF00832B8B /* spawn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 619248F721A825AE00832B8B /* spawn.wav */; };
+		6192490421A825AF00832B8B /* attack.wav in Resources */ = {isa = PBXBuildFile; fileRef = 619248F821A825AE00832B8B /* attack.wav */; };
+		6192490521A825AF00832B8B /* smallHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 619248F921A825AE00832B8B /* smallHit.wav */; };
+		6192490621A825AF00832B8B /* boom.wav in Resources */ = {isa = PBXBuildFile; fileRef = 619248FA21A825AE00832B8B /* boom.wav */; };
+		6192490721A825AF00832B8B /* defend.wav in Resources */ = {isa = PBXBuildFile; fileRef = 619248FB21A825AE00832B8B /* defend.wav */; };
+		6192490821A825AF00832B8B /* lionlaugh4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 619248FC21A825AE00832B8B /* lionlaugh4.wav */; };
+		6192490921A825AF00832B8B /* pew.wav in Resources */ = {isa = PBXBuildFile; fileRef = 619248FD21A825AE00832B8B /* pew.wav */; };
+		6192490A21A825AF00832B8B /* Latin_Industries.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 619248FE21A825AE00832B8B /* Latin_Industries.mp3 */; };
+		6192490B21A825AF00832B8B /* mass.wav in Resources */ = {isa = PBXBuildFile; fileRef = 619248FF21A825AE00832B8B /* mass.wav */; };
+		6192490C21A825AF00832B8B /* lioncry3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6192490021A825AF00832B8B /* lioncry3.wav */; };
+		6192490D21A825AF00832B8B /* bigHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6192490121A825AF00832B8B /* bigHit.wav */; };
+		6192490E21A825AF00832B8B /* pew2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6192490221A825AF00832B8B /* pew2.wav */; };
+		6192491021A8267300832B8B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192490F21A8267300832B8B /* Constants.swift */; };
+		6192491221A827EA00832B8B /* MyMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192491121A827EA00832B8B /* MyMath.swift */; };
+		6192491421A828D200832B8B /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192491321A828D200832B8B /* SoundManager.swift */; };
+		6192491621A8299000832B8B /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192491521A8299000832B8B /* ButtonNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		619248D821A8239400832B8B /* Amoeba Wars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amoeba Wars.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		619248DB21A8239400832B8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619248DD21A8239400832B8B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		619248DF21A8239400832B8B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		619248E121A8239400832B8B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		619248E321A8239400832B8B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		619248E621A8239400832B8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		619248E821A8239500832B8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		619248EB21A8239500832B8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		619248ED21A8239500832B8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		619248F721A825AE00832B8B /* spawn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = spawn.wav; sourceTree = "<group>"; };
+		619248F821A825AE00832B8B /* attack.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = attack.wav; sourceTree = "<group>"; };
+		619248F921A825AE00832B8B /* smallHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smallHit.wav; sourceTree = "<group>"; };
+		619248FA21A825AE00832B8B /* boom.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boom.wav; sourceTree = "<group>"; };
+		619248FB21A825AE00832B8B /* defend.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = defend.wav; sourceTree = "<group>"; };
+		619248FC21A825AE00832B8B /* lionlaugh4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lionlaugh4.wav; sourceTree = "<group>"; };
+		619248FD21A825AE00832B8B /* pew.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pew.wav; sourceTree = "<group>"; };
+		619248FE21A825AE00832B8B /* Latin_Industries.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Latin_Industries.mp3; sourceTree = "<group>"; };
+		619248FF21A825AE00832B8B /* mass.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mass.wav; sourceTree = "<group>"; };
+		6192490021A825AF00832B8B /* lioncry3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lioncry3.wav; sourceTree = "<group>"; };
+		6192490121A825AF00832B8B /* bigHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bigHit.wav; sourceTree = "<group>"; };
+		6192490221A825AF00832B8B /* pew2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pew2.wav; sourceTree = "<group>"; };
+		6192490F21A8267300832B8B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6192491121A827EA00832B8B /* MyMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMath.swift; sourceTree = "<group>"; };
+		6192491321A828D200832B8B /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		6192491521A8299000832B8B /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +90,12 @@
 		619248DA21A8239400832B8B /* Amoeba Wars */ = {
 			isa = PBXGroup;
 			children = (
+				619248F621A824A900832B8B /* Sounds */,
+				619248F521A8249200832B8B /* Entities */,
+				619248F421A8248400832B8B /* Components */,
+				619248F321A8247400832B8B /* Helpers */,
 				619248DB21A8239400832B8B /* AppDelegate.swift */,
 				619248DD21A8239400832B8B /* GameScene.sks */,
-				619248DF21A8239400832B8B /* Actions.sks */,
 				619248E121A8239400832B8B /* GameScene.swift */,
 				619248E321A8239400832B8B /* GameViewController.swift */,
 				619248E521A8239400832B8B /* Main.storyboard */,
@@ -71,6 +104,50 @@
 				619248ED21A8239500832B8B /* Info.plist */,
 			);
 			path = "Amoeba Wars";
+			sourceTree = "<group>";
+		};
+		619248F321A8247400832B8B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6192490F21A8267300832B8B /* Constants.swift */,
+				6192491121A827EA00832B8B /* MyMath.swift */,
+				6192491321A828D200832B8B /* SoundManager.swift */,
+				6192491521A8299000832B8B /* ButtonNode.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		619248F421A8248400832B8B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		619248F521A8249200832B8B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		619248F621A824A900832B8B /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				619248F821A825AE00832B8B /* attack.wav */,
+				6192490121A825AF00832B8B /* bigHit.wav */,
+				619248FA21A825AE00832B8B /* boom.wav */,
+				619248FB21A825AE00832B8B /* defend.wav */,
+				619248FE21A825AE00832B8B /* Latin_Industries.mp3 */,
+				6192490021A825AF00832B8B /* lioncry3.wav */,
+				619248FC21A825AE00832B8B /* lionlaugh4.wav */,
+				619248FF21A825AE00832B8B /* mass.wav */,
+				619248FD21A825AE00832B8B /* pew.wav */,
+				6192490221A825AF00832B8B /* pew2.wav */,
+				619248F921A825AE00832B8B /* smallHit.wav */,
+				619248F721A825AE00832B8B /* spawn.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,11 +208,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6192490421A825AF00832B8B /* attack.wav in Resources */,
+				6192490621A825AF00832B8B /* boom.wav in Resources */,
+				6192490E21A825AF00832B8B /* pew2.wav in Resources */,
+				6192490721A825AF00832B8B /* defend.wav in Resources */,
+				6192490821A825AF00832B8B /* lionlaugh4.wav in Resources */,
+				6192490321A825AF00832B8B /* spawn.wav in Resources */,
 				619248E721A8239400832B8B /* Main.storyboard in Resources */,
 				619248DE21A8239400832B8B /* GameScene.sks in Resources */,
+				6192490C21A825AF00832B8B /* lioncry3.wav in Resources */,
+				6192490A21A825AF00832B8B /* Latin_Industries.mp3 in Resources */,
+				6192490521A825AF00832B8B /* smallHit.wav in Resources */,
 				619248E921A8239500832B8B /* Assets.xcassets in Resources */,
 				619248EC21A8239500832B8B /* LaunchScreen.storyboard in Resources */,
-				619248E021A8239400832B8B /* Actions.sks in Resources */,
+				6192490B21A825AF00832B8B /* mass.wav in Resources */,
+				6192490D21A825AF00832B8B /* bigHit.wav in Resources */,
+				6192490921A825AF00832B8B /* pew.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,8 +235,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				619248E221A8239400832B8B /* GameScene.swift in Sources */,
+				6192491421A828D200832B8B /* SoundManager.swift in Sources */,
 				619248E421A8239400832B8B /* GameViewController.swift in Sources */,
+				6192491221A827EA00832B8B /* MyMath.swift in Sources */,
 				619248DC21A8239400832B8B /* AppDelegate.swift in Sources */,
+				6192491021A8267300832B8B /* Constants.swift in Sources */,
+				6192491621A8299000832B8B /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +393,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.brianrichardmccarthy.Amoeba-Wars";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -318,7 +410,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.brianrichardmccarthy.Amoeba-Wars";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
