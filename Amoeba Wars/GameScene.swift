@@ -82,16 +82,14 @@ class GameScene: SKScene {
         self.addChild(coinRightLabel)
         
         // Add base left
-        
-        /*
-         
-         histolyticaButton = ButtonNode(iconName: ImageName.HistolyticaLeft, text: String(GameConfig.HistolyticaCost), onButtonPress: histolyticaPressed)
-         histolyticaButton.position = CGPoint(x: size.width * 0.25, y: margin + histolyticaButton.size.height / 2)
-         addChild(histolyticaButton)
-         
-         */
+        let baseLeft = SKSpriteNode(imageNamed: ImageName.BaseLeftDefence)
+        baseLeft.position = CGPoint(x: size.width * 0.2, y: (margin + margin / 2) + (histolyticaButton.size.height / 2) + baseLeft.texture!.size().height / 2)
+        addChild(baseLeft)
         
         // Add base right
+        let baseRight = SKSpriteNode(imageNamed: ImageName.BaseRightDefence)
+        baseRight.position = CGPoint(x: size.width * 0.8, y: (margin + margin / 2) + (proteusButton.size.height / 2) + baseRight.texture!.size().height / 2)
+        addChild(baseRight)
         /*
          
          proteusButton = ButtonNode(iconName: ImageName.ProteusLeft, text: String(GameConfig.ProteusCost), onButtonPress: proteusPressed)

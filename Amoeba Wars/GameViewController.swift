@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
             
             if let scene = SKScene(fileNamed: "GameScene") {
                 scene.scaleMode = .aspectFill
-                //scene.size = view.bounds.size
+                scene.size = view.bounds.size
                 view.presentScene(scene)
             }
             view.ignoresSiblingOrder = true
