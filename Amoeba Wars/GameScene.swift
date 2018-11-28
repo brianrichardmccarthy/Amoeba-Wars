@@ -10,7 +10,7 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    let margin = CGFloat(30)
+    let margin = CGFloat(100)
     var histolyticaButton: ButtonNode!
     var fowleriButton: ButtonNode!
     var proteusButton: ButtonNode!
@@ -19,9 +19,12 @@ class GameScene: SKScene {
     var lastUpdateTimeInterval: TimeInterval = 0
     var gameOver = false
     
+    var entityManager: EntityManager!
+    
     override func didMove(to view: SKView) {
         
         // Create entity manager
+        entityManager = EntityManager(scene: self)
         
         // Start background music
         let bgMusic = SKAudioNode(fileNamed: SoundFile.BackgroundMusic)
@@ -30,8 +33,7 @@ class GameScene: SKScene {
         
         // Add background
         let background = SKSpriteNode(imageNamed: ImageName.Background)
-        background.anchorPoint = CGPoint(x: 0, y: 0)
-        background.position = CGPoint(x: 0, y: 0)
+        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
         background.zPosition = Layer.Background
         background.size = self.size
         addChild(background)
@@ -82,22 +84,18 @@ class GameScene: SKScene {
         self.addChild(coinRightLabel)
         
         // Add base left
-        let baseLeft = SKSpriteNode(imageNamed: ImageName.BaseLeftDefence)
-        baseLeft.position = CGPoint(x: size.width * 0.2, y: (margin + margin / 2) + (histolyticaButton.size.height / 2) + baseLeft.texture!.size().height / 2)
-        addChild(baseLeft)
+        let baseLeft = Base(imageName: ImageName.Base_Left_Attack, team: .teamLeft, entityManager: entityManager)
+        if let spriteComponent = baseLeft.component(ofType: SpriteComponent.self) {
+            spriteComponent.node.position = CGPoint(x: spriteComponent.node.size.width/2, y: size.height/2)
+        }
+        entityManager.add(baseLeft)
         
         // Add base right
-        let baseRight = SKSpriteNode(imageNamed: ImageName.BaseRightDefence)
-        baseRight.position = CGPoint(x: size.width * 0.8, y: (margin + margin / 2) + (proteusButton.size.height / 2) + baseRight.texture!.size().height / 2)
-        addChild(baseRight)
-        /*
-         
-         proteusButton = ButtonNode(iconName: ImageName.ProteusLeft, text: String(GameConfig.ProteusCost), onButtonPress: proteusPressed)
-         proteusButton.position = CGPoint(x: size.width * 0.75, y: margin + proteusButton.size.height / 2)
-         addChild(proteusButton)
-         
-         */
-        
+        let baseRight = Base(imageName: ImageName.Base_Right_Attack, team: .teamRight, entityManager: entityManager)
+        if let spriteComponent = baseRight.component(ofType: SpriteComponent.self) {
+            spriteComponent.node.position = CGPoint(x: size.width - spriteComponent.node.size.width/2, y: size.height/2)
+        }
+        entityManager.add(baseRight)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -116,11 +114,29 @@ class GameScene: SKScene {
         
     }
     
-    override func update(_ currentTime: TimeInterval) { }
+    override func update(_ currentTime: TimeInterval) {
+        let deltaTime = currentTime - lastUpdateTimeInterval
+        lastUpdateTimeInterval = currentTime
+        
+        entityManager.update(deltaTime)
+        
+        // update player left coins
+        if let playerLeft = entityManager.base(for: .teamLeft),
+            let playerLeftBase = playerLeft.component(ofType: BaseComponent.self) {
+            coinLeftLabel.text = "\(playerLeftBase.coins)"
+        }
+        
+        // update player right coins
+        if let playerRight = entityManager.base(for: .teamRight),
+            let playerRightBase = playerRight.component(ofType: BaseComponent.self) {
+            coinRightLabel.text = "\(playerRightBase.coins)"
+        }
+    }
     
     //MARK: - Button methods
     func histolyticaPressed() {
         print("Histolytica pressed!")
+        entityManager.spawnHistolytica(team: .teamLeft)
     }
     
     func proteusPressed() {

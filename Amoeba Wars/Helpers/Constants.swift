@@ -16,17 +16,23 @@ struct ImageName {
     static let Background = "Background"
     static let Button = "Button.png";
     static let HistolyticaLeft = "HistolyticaLeft.png";
+    static let HistolyticaRight = "HistolyticaRight.png";
     static let FowleriLeft = "FowleriLeft.png";
+    static let FowleriRight = "FowleriRight.png";
+    static let ProteusRight = "ProteusRight.png";
     static let ProteusLeft = "ProteusLeft.png";
     static let Coin = "Coin.png";
     static let BaseLeftDefence = "Base_Left_Defence.png";
     static let BaseRightDefence = "Base_Right_Defence.png";
+    static let Base_Left_Attack = "Base_Left_Attack.png";
+    static let Base_Right_Attack = "Base_Right_Attack.png";
 }
 
 struct Layer {
     static let Background: CGFloat = 0
     static let Button: CGFloat = 1;
     static let HUD: CGFloat = 2;
+    static let Amoeba: CGFloat = 3;
 }
 
 struct PhysicsCategory {
