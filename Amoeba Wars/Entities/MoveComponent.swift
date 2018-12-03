@@ -9,13 +9,10 @@
 import SpriteKit
 import GameplayKit
 
-// 1
 class MoveComponent: GKAgent2D, GKAgentDelegate {
     
-    // 2
     let entityManager: EntityManager
     
-    // 3
     init(maxSpeed: Float, maxAcceleration: Float, radius: Float, entityManager: EntityManager) {
         self.entityManager = entityManager
         super.init()
@@ -31,7 +28,6 @@ class MoveComponent: GKAgent2D, GKAgentDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // 4
     func agentWillUpdate(_ agent: GKAgent) {
         guard let spriteComponent = entity?.component(ofType: SpriteComponent.self) else {
             return
@@ -40,7 +36,6 @@ class MoveComponent: GKAgent2D, GKAgentDelegate {
         position = float2(spriteComponent.node.position)
     }
     
-    // 5
     func agentDidUpdate(_ agent: GKAgent) {
         guard let spriteComponent = entity?.component(ofType: SpriteComponent.self) else {
             return

@@ -11,6 +11,10 @@ import GameplayKit
 
 class EntityManager {
     
+    enum Amoeba {
+        case Proteus, Fowleri, Histolytica
+    }
+    
     lazy var componentSystems: [GKComponentSystem] = {
         let baseSystem = GKComponentSystem(componentClass: BaseComponent.self)
         let moveSystem = GKComponentSystem(componentClass: MoveComponent.self)
@@ -57,6 +61,81 @@ class EntityManager {
             }
         }
         return nil
+    }
+    
+    func spawnFowleri(team: Team) {
+        guard let teamEntity = base(for: team),
+            let teamBaseComponent = teamEntity.component(ofType: BaseComponent.self),
+            let teamSpriteComponent = teamEntity.component(ofType: SpriteComponent.self) else {
+                return
+        }
+        
+        if teamBaseComponent.coins < GameConfig.FowleriCost {
+            return
+        }
+        teamBaseComponent.coins -= GameConfig.FowleriCost
+        scene.run(SoundManager.sharedInstance.soundSpawn)
+        
+        let amoeba = Fowleri(team: team, entityManager: self)
+        if let spriteComponent = amoeba.component(ofType: SpriteComponent.self) {
+            spriteComponent.node.position = CGPoint(x: teamSpriteComponent.node.position.x, y: CGFloat.random(min: scene.size.height * 0.25, max: scene.size.height * 0.75))
+            spriteComponent.node.zPosition = Layer.Amoeba
+        }
+        add(amoeba)
+    }
+    
+    func spawnProteus(team: Team) {
+        guard let teamEntity = base(for: team),
+            let teamBaseComponent = teamEntity.component(ofType: BaseComponent.self),
+            let teamSpriteComponent = teamEntity.component(ofType: SpriteComponent.self) else {
+                return
+        }
+        
+        if teamBaseComponent.coins < GameConfig.ProteusCost {
+            return
+        }
+        teamBaseComponent.coins -= GameConfig.ProteusCost
+        scene.run(SoundManager.sharedInstance.soundSpawn)
+        
+        let amoeba = Proteus(team: team, entityManager: self)
+        if let spriteComponent = amoeba.component(ofType: SpriteComponent.self) {
+            spriteComponent.node.position = CGPoint(x: teamSpriteComponent.node.position.x, y: CGFloat.random(min: scene.size.height * 0.25, max: scene.size.height * 0.75))
+            spriteComponent.node.zPosition = Layer.Amoeba
+        }
+        add(amoeba)
+    }
+    
+    func spawnAmoeba(team: Team, amoebaType: Amoeba) {
+        guard let teamEntity = base(for: team),
+            let teamBaseComponent = teamEntity.component(ofType: BaseComponent.self),
+            let teamSpriteComponent = teamEntity.component(ofType: SpriteComponent.self) else {
+                return
+        }
+        
+        if teamBaseComponent.coins < GameConfig.ProteusCost {
+            return
+        }
+        
+        var amoeba: Amoeba?
+        
+        switch amoebaType {
+        case .Fowleri:
+            amoeba = Amoeba(team: team, entityManager: self, imageName: team.rawValue=="Left" ? ImageName.ProteusLeft : ImageName.ProteusRight)
+        case .Histolytica:
+            amoeba = Amoeba(team: team, entityManager: self)
+        case .Proteus:
+            amoeba = Amoeba(team: team, entityManager: self)
+        }
+        
+        teamBaseComponent.coins -= GameConfig.ProteusCost
+        scene.run(SoundManager.sharedInstance.soundSpawn)
+        
+        // let amoeba = Proteus(team: team, entityManager: self)
+        if let spriteComponent = amoeba.component(ofType: SpriteComponent.self) {
+            spriteComponent.node.position = CGPoint(x: teamSpriteComponent.node.position.x, y: CGFloat.random(min: scene.size.height * 0.25, max: scene.size.height * 0.75))
+            spriteComponent.node.zPosition = Layer.Amoeba
+        }
+        add(amoeba)
     }
     
     func spawnHistolytica(team: Team) {

@@ -38,6 +38,9 @@
 		6192491221A827EA00832B8B /* MyMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192491121A827EA00832B8B /* MyMath.swift */; };
 		6192491421A828D200832B8B /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192491321A828D200832B8B /* SoundManager.swift */; };
 		6192491621A8299000832B8B /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192491521A8299000832B8B /* ButtonNode.swift */; };
+		61EF65A521B1687900F74D1C /* Fowleri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EF65A421B1687900F74D1C /* Fowleri.swift */; };
+		61EF65A721B1688900F74D1C /* Proteus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EF65A621B1688900F74D1C /* Proteus.swift */; };
+		61EF65A921B16DFA00F74D1C /* Amoeba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EF65A821B16DFA00F74D1C /* Amoeba.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +77,9 @@
 		6192491121A827EA00832B8B /* MyMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMath.swift; sourceTree = "<group>"; };
 		6192491321A828D200832B8B /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		6192491521A8299000832B8B /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
+		61EF65A421B1687900F74D1C /* Fowleri.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fowleri.swift; sourceTree = "<group>"; };
+		61EF65A621B1688900F74D1C /* Proteus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proteus.swift; sourceTree = "<group>"; };
+		61EF65A821B16DFA00F74D1C /* Amoeba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amoeba.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				6172AF2A21AEF9BC00952142 /* Histolytica.swift */,
+				61EF65A421B1687900F74D1C /* Fowleri.swift */,
+				61EF65A621B1688900F74D1C /* Proteus.swift */,
+				61EF65A821B16DFA00F74D1C /* Amoeba.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -266,7 +275,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61EF65A521B1687900F74D1C /* Fowleri.swift in Sources */,
 				6172AF2921AEF19900952142 /* BaseComponent.swift in Sources */,
+				61EF65A721B1688900F74D1C /* Proteus.swift in Sources */,
 				6172AF2521AEEE2F00952142 /* EntityManager.swift in Sources */,
 				6172AF2D21AF006B00952142 /* MoveBehavior.swift in Sources */,
 				619248E221A8239400832B8B /* GameScene.swift in Sources */,
@@ -280,6 +291,7 @@
 				6172AF2F21AF00B700952142 /* MoveComponent.swift in Sources */,
 				6192491021A8267300832B8B /* Constants.swift in Sources */,
 				6192491621A8299000832B8B /* ButtonNode.swift in Sources */,
+				61EF65A921B16DFA00F74D1C /* Amoeba.swift in Sources */,
 				6172AF2B21AEF9BC00952142 /* Histolytica.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
