@@ -135,18 +135,15 @@ class GameScene: SKScene {
     
     //MARK: - Button methods
     func histolyticaPressed() {
-        print("Histolytica pressed!")
-        entityManager.spawnHistolytica(team: .teamLeft)
+        entityManager.spawnAmoeba(team: .teamLeft, amoebaType: .Histolytica)
     }
     
     func proteusPressed() {
-        print("proteus pressed!")
-        entityManager.spawnProteus(team: .teamLeft)
+        entityManager.spawnAmoeba(team: .teamLeft, amoebaType: .Proteus)
     }
     
     func fowleriPressed() {
-        print("fowleri pressed!")
-        entityManager.spawnFowleri(team: .teamLeft)
+        entityManager.spawnAmoeba(team: .teamLeft, amoebaType: .Fowleri)
     }
     
 }

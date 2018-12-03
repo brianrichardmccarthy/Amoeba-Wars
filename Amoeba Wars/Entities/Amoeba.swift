@@ -11,14 +11,14 @@ import GameplayKit
 
 class Amoeba: GKEntity {
     
-    init(team: Team, entityManager: EntityManager, imageName: String) {
+    init(team: Team, entityManager: EntityManager, imageName: String, maxSpeed: Float, maxAcceleration: Float) {
         super.init()
-        //let imageName = team.rawValue=="Left" ? ImageName.ProteusLeft : ImageName.ProteusRight
+        let imageName = imageName
         let texture = SKTexture(imageNamed: imageName)
         let spriteComponent = SpriteComponent(texture: texture)
         addComponent(spriteComponent)
         addComponent(TeamComponent(team: team))
-        addComponent(MoveComponent(maxSpeed: 150, maxAcceleration: 5, radius: Float(texture.size().width * 0.3), entityManager: entityManager))
+        addComponent(MoveComponent(maxSpeed: maxSpeed, maxAcceleration: maxAcceleration, radius: Float(texture.size().width * 0.3), entityManager: entityManager))
     }
     
     required init?(coder aDecoder: NSCoder) {
