@@ -18,6 +18,7 @@ class GameScene: SKScene {
     let coinRightLabel = SKLabelNode(fontNamed: "Courier-Bold")
     var lastUpdateTimeInterval: TimeInterval = 0
     var gameOver = false
+    var computer: AIPlayer?
     
     var entityManager: EntityManager!
     
@@ -25,6 +26,7 @@ class GameScene: SKScene {
         
         // Create entity manager
         entityManager = EntityManager(scene: self)
+        computer = AIPlayer(entityManager: entityManager)
         
         // Start background music
         let bgMusic = SKAudioNode(fileNamed: SoundFile.BackgroundMusic)
@@ -130,6 +132,7 @@ class GameScene: SKScene {
         if let playerRight = entityManager.base(for: .teamRight),
             let playerRightBase = playerRight.component(ofType: BaseComponent.self) {
             coinRightLabel.text = "\(playerRightBase.coins)"
+            computer!.update(score: playerRightBase.coins)
         }
     }
     

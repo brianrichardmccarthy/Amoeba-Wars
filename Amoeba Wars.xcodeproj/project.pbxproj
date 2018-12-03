@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610BCFEB21B549AC0016A5F9 /* AIPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610BCFEA21B549AC0016A5F9 /* AIPlayer.swift */; };
 		6172AF2021AEEC5400952142 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172AF1F21AEEC5400952142 /* SpriteComponent.swift */; };
 		6172AF2321AEEDFE00952142 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172AF2221AEEDFE00952142 /* Base.swift */; };
 		6172AF2521AEEE2F00952142 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6172AF2421AEEE2F00952142 /* EntityManager.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		610BCFEA21B549AC0016A5F9 /* AIPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIPlayer.swift; sourceTree = "<group>"; };
 		6172AF1F21AEEC5400952142 /* SpriteComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpriteComponent.swift; path = "Amoeba Wars/SpriteComponent.swift"; sourceTree = SOURCE_ROOT; };
 		6172AF2221AEEDFE00952142 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		6172AF2421AEEE2F00952142 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			children = (
 				6172AF2221AEEDFE00952142 /* Base.swift */,
 				6172AF2421AEEE2F00952142 /* EntityManager.swift */,
+				610BCFEA21B549AC0016A5F9 /* AIPlayer.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				610BCFEB21B549AC0016A5F9 /* AIPlayer.swift in Sources */,
 				6172AF2921AEF19900952142 /* BaseComponent.swift in Sources */,
 				6172AF2521AEEE2F00952142 /* EntityManager.swift in Sources */,
 				6172AF2D21AF006B00952142 /* MoveBehavior.swift in Sources */,
