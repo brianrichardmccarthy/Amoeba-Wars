@@ -20,7 +20,7 @@ class MoveComponent: GKAgent2D, GKAgentDelegate {
         self.maxSpeed = maxSpeed
         self.maxAcceleration = maxAcceleration
         self.radius = radius
-        print(self.mass)
+        //print(self.mass)
         self.mass = 0.01
     }
     
@@ -57,6 +57,20 @@ class MoveComponent: GKAgent2D, GKAgentDelegate {
                 closestDistance = distance
             }
         }
+        
+        guard let healthCmpt = entity?.component(ofType: HealthComponent.self) else {
+            return closestMoveComponent
+        }
+        
+        guard let enemyHealthCmpt = closestMoveComponent?.entity?.component(ofType: HealthComponent.self) else {
+            return closestMoveComponent
+        }
+        
+        if closestDistance < 2.0 {
+            healthCmpt.takeDamage(damage: enemyHealthCmpt.damage)
+            
+        }
+        
         return closestMoveComponent
         
     }

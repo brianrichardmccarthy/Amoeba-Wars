@@ -18,7 +18,8 @@ class EntityManager {
     lazy var componentSystems: [GKComponentSystem] = {
         let baseSystem = GKComponentSystem(componentClass: BaseComponent.self)
         let moveSystem = GKComponentSystem(componentClass: MoveComponent.self)
-        return [baseSystem, moveSystem]
+        let heathSystem = GKComponentSystem(componentClass: HealthComponent.self)
+        return [baseSystem, moveSystem, heathSystem]
     }()
     
     var toRemove = Set<GKEntity>()
@@ -78,19 +79,24 @@ class EntityManager {
                     return
                 }
                 amoeba = Amoeba(team: team, entityManager: self, imageName: team.rawValue=="Left" ? ImageName.FowleriLeft : ImageName.FowleriRight, maxSpeed: 150, maxAcceleration: 5)
+                teamBaseComponent.coins -= GameConfig.FowleriCost
+                amoeba?.addComponent(HealthComponent(health: 40, damage: 15, entityManager: self))
             case .Histolytica:
                 if teamBaseComponent.coins < GameConfig.HistolyticaCost {
                     return
                 }
                 amoeba = Amoeba(team: team, entityManager: self, imageName: team.rawValue=="Left" ? ImageName.HistolyticaLeft : ImageName.HistolyticaRight, maxSpeed: 150, maxAcceleration: 5)
+                teamBaseComponent.coins -= GameConfig.HistolyticaCost
+                amoeba?.addComponent(HealthComponent(health: 60, damage: 20, entityManager: self))
             case .Proteus:
                 if teamBaseComponent.coins < GameConfig.ProteusCost {
                     return
                 }
                 amoeba = Amoeba(team: team, entityManager: self, imageName: team.rawValue=="Left" ? ImageName.ProteusLeft : ImageName.ProteusRight, maxSpeed: 150, maxAcceleration: 5)
+                teamBaseComponent.coins -= GameConfig.ProteusCost
+                amoeba?.addComponent(HealthComponent(health: 100, damage: 25, entityManager: self))
         }
         
-        teamBaseComponent.coins -= GameConfig.ProteusCost
         scene.run(SoundManager.sharedInstance.soundSpawn)
         
         if let spriteComponent = amoeba!.component(ofType: SpriteComponent.self) {

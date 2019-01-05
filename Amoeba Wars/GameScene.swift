@@ -16,9 +16,13 @@ class GameScene: SKScene {
     var proteusButton: ButtonNode!
     let coinLeftLabel = SKLabelNode(fontNamed: "Courier-Bold")
     let coinRightLabel = SKLabelNode(fontNamed: "Courier-Bold")
+    let healthLeftLabel = SKLabelNode(fontNamed: "Courier-Bold")
+    let healthRightLabel = SKLabelNode(fontNamed: "Courier-Bold")
     var lastUpdateTimeInterval: TimeInterval = 0
     var gameOver = false
     var computer: AIPlayer?
+    var baseLeft: Base!
+    var baseRight: Base!
     
     var entityManager: EntityManager!
     
@@ -68,7 +72,7 @@ class GameScene: SKScene {
         coinLeftLabel.horizontalAlignmentMode = .left
         coinLeftLabel.verticalAlignmentMode = .center
         coinLeftLabel.text = "0"
-        self.addChild(coinLeftLabel)
+        addChild(coinLeftLabel)
         
         // Add coin right indicator
         let coinRight = SKSpriteNode(imageNamed: ImageName.Coin)
@@ -83,21 +87,39 @@ class GameScene: SKScene {
         coinRightLabel.horizontalAlignmentMode = .right
         coinRightLabel.verticalAlignmentMode = .center
         coinRightLabel.text = "0"
-        self.addChild(coinRightLabel)
+        addChild(coinRightLabel)
         
         // Add base left
-        let baseLeft = Base(imageName: ImageName.Base_Left_Attack, team: .teamLeft, entityManager: entityManager)
+        baseLeft = Base(imageName: ImageName.Base_Left_Attack, team: .teamLeft, entityManager: entityManager)
         if let spriteComponent = baseLeft.component(ofType: SpriteComponent.self) {
             spriteComponent.node.position = CGPoint(x: spriteComponent.node.size.width/2, y: size.height/2)
         }
         entityManager.add(baseLeft)
         
+        healthLeftLabel.fontSize = 50
+        healthLeftLabel.fontColor = SKColor.black
+        healthLeftLabel.position = CGPoint(x: coinLeftLabel.position.x + margin, y: coinLeft.position.y - coinLeftLabel.fontSize * 1.5)
+        healthLeftLabel.zPosition = Layer.HUD
+        healthLeftLabel.horizontalAlignmentMode = .right
+        healthLeftLabel.verticalAlignmentMode = .center
+        healthLeftLabel.text = "Health \(baseLeft.component(ofType: HealthComponent.self)!.health)"
+        addChild(healthLeftLabel)
+        
         // Add base right
-        let baseRight = Base(imageName: ImageName.Base_Right_Attack, team: .teamRight, entityManager: entityManager)
+        baseRight = Base(imageName: ImageName.Base_Right_Attack, team: .teamRight, entityManager: entityManager)
         if let spriteComponent = baseRight.component(ofType: SpriteComponent.self) {
             spriteComponent.node.position = CGPoint(x: size.width - spriteComponent.node.size.width/2, y: size.height/2)
         }
         entityManager.add(baseRight)
+        
+        healthRightLabel.fontSize = 50
+        healthRightLabel.fontColor = SKColor.black
+        healthRightLabel.position = CGPoint(x: coinRight.position.x - coinRight.size.width/2 - margin, y: coinLeft.position.y - coinLeftLabel.fontSize * 1.5)
+        healthRightLabel.zPosition = Layer.HUD
+        healthRightLabel.horizontalAlignmentMode = .left
+        healthRightLabel.verticalAlignmentMode = .center
+        healthRightLabel.text = "Health \(baseLeft.component(ofType: HealthComponent.self)!.health)"
+        addChild(healthRightLabel)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -117,6 +139,11 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        
+        if (gameOver) {
+            return
+        }
+        
         let deltaTime = currentTime - lastUpdateTimeInterval
         lastUpdateTimeInterval = currentTime
         
@@ -134,6 +161,16 @@ class GameScene: SKScene {
             coinRightLabel.text = "\(playerRightBase.coins)"
             computer!.update(score: playerRightBase.coins)
         }
+        
+        let left = baseLeft.component(ofType: HealthComponent.self)!
+        let right = baseLeft.component(ofType: HealthComponent.self)!
+        healthLeftLabel.text = "\(left.health)"
+        healthRightLabel.text = "\(right.health)"
+        
+        if (left.isDead() || right.isDead()) {
+            gameOver = true
+        }
+        
     }
     
     //MARK: - Button methods
