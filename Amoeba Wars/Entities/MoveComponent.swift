@@ -69,6 +69,11 @@ class MoveComponent: GKAgent2D, GKAgentDelegate {
         if closestDistance < 5.0 {
             healthCmpt.takeDamage(damage: enemyHealthCmpt.damage)
             
+            if healthCmpt.isDead() {
+                entityManager.remove(entity!)
+            }
+            
+            
         }
         
         return closestMoveComponent
