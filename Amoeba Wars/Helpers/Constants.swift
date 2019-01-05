@@ -26,6 +26,7 @@ struct ImageName {
     static let BaseRightDefence = "Base_Right_Defence.png";
     static let Base_Left_Attack = "Base_Left_Attack.png";
     static let Base_Right_Attack = "Base_Right_Attack.png";
+    static let Heart = "heart-full.png"
 }
 
 struct Layer {

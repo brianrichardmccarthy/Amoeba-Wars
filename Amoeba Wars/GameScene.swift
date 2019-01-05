@@ -120,6 +120,18 @@ class GameScene: SKScene {
         healthRightLabel.verticalAlignmentMode = .center
         healthRightLabel.text = "Health \(baseLeft.component(ofType: HealthComponent.self)!.health)"
         addChild(healthRightLabel)
+        
+        let heartRight = SKSpriteNode(imageNamed: ImageName.Heart)
+        heartRight.position = CGPoint(x: self.size.width - (margin + coinRight.size.width * 4), y: size.height - margin - coinRight.size.height * 2)
+        heartRight.size = CGSize(width: 75, height: 75)
+        addChild(heartRight)
+        
+        let heartLeft = SKSpriteNode(imageNamed: ImageName.Heart)
+        heartLeft.position = CGPoint(x: margin + coinLeft.size.width/2,
+                                     y: size.height - margin - coinLeft.size.height * 2)
+        heartLeft.size = CGSize(width: 75, height: 75)
+        addChild(heartLeft)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
