@@ -169,6 +169,18 @@ class GameScene: SKScene {
         
         if (left.isDead() || right.isDead()) {
             gameOver = true
+            children.forEach {
+                $0.removeFromParent()
+            }
+            let playAgain = SKLabelNode(fontNamed: "Courier-Bold")
+            playAgain.fontSize = 50
+            playAgain.fontColor = SKColor.black
+            playAgain.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+            playAgain.zPosition = Layer.HUD
+            playAgain.horizontalAlignmentMode = .left
+            playAgain.verticalAlignmentMode = .center
+            playAgain.text = "Tap anywhere to play again"
+            addChild(playAgain)
         }
         
     }

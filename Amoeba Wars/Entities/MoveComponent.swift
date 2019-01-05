@@ -66,7 +66,7 @@ class MoveComponent: GKAgent2D, GKAgentDelegate {
             return closestMoveComponent
         }
         
-        if closestDistance < 2.0 {
+        if closestDistance < 5.0 {
             healthCmpt.takeDamage(damage: enemyHealthCmpt.damage)
             
         }
